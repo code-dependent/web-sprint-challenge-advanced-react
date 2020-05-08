@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import {useForm} from './customHooks/useForm'
+import {useForm} from '../hooks/useForm'
+import {useNightMode} from '../hooks/useNightMode'
+
 
 // This form should be handled by a "useForm" custom hook
 // Build out the logic needed for a form custom hook (see the useForm.js file)
@@ -7,6 +9,7 @@ import {useForm} from './customHooks/useForm'
 
 const CheckoutForm = (props) => {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [nightMode, setNightMode]=useNightMode(JSON.parse(window.localStorage.getItem('nightMode'))== true? true:false)
   const [handleChanges, values] = useForm(
     {
       firstName: "",
@@ -17,6 +20,11 @@ const CheckoutForm = (props) => {
       zip: "",
     }
   );
+
+  const toggleMode = e => {
+    e.preventDefault();
+    setNightMode(!nightMode);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();

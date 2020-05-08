@@ -37,8 +37,7 @@ function App() {
           <ul className="steps">
             <li>
               <a
-                onClick={toggleMode}
-                className={nightMode ? 'nightMode' : 'dayMode'}>
+                onClick={toggleMode}>
                 {nightMode?'Day-Mode':'Night-Mode'}
               </a>
             </li>

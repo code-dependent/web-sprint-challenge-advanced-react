@@ -72,7 +72,7 @@ function App() {
           )}
         />
         <Route path="/checkout">
-          <CheckoutForm nightMode={nightMode}/>
+          <CheckoutForm />
         </Route>
       </Router>
     </div>

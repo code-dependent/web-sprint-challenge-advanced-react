@@ -28,15 +28,40 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
-1. Explain how to build stateful class components.
+1. Explain how to build stateful class components. 
+
+constructor(){ <-- *Constructor method*
+super();<--- *super, required in order to use 'this' keyword*
+this.state = {
+  *declare some initial state*
+}
+}
 
 2. Describe the different phases of the component lifecycle.
 
+## birth/mounting phase (cDM)
+when a component mounts
+## growth/updating phase (cDU)
+when this.state.{some state} updates causing the component to rerender.
+## death/Unmounting phase (cWU)
+when a component unmounts. this is usually the time to do some clean up work, removing eventListeners, invalidating timers etc.
+
 3. Demonstrate an understanding of class component lifecycle methods.
+## constructor(){}
+  to initialize state and bind methods.
+## (cDM) componentDidMount(){}
+  Initialization which requires DOM nodes should go here. If you need to fetch data from an API and have it displayed when the component mounts this is a good spot to do so.
+## (cDU) componentDidUpdate() 
+  invoked immediately after updating occurs and not for initial render.
+## (cWU) componentWillUnmount()
+  invoked immediately before a component is unmounted and destroyed.
+
 
 4. Define stateful logic.
+any state that changes
 
 5. Describe how to test a React component with React Testing Library.
+testing should replicate real user interactions 
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
